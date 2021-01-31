@@ -46,14 +46,14 @@ end
 local function get_current_mode()
     local modes = {
         n      = { alias = 'NORMAL',   color = c.white  },
-        i      = { alias = 'INSERT',   color = c.cyan   },
-        c      = { alias = 'COMMAND',  color = c.light   },
-        v      = { alias = 'VISUAL',   color = c.cactus },
-        V      = { alias = 'V-LINE',   color = c.cactus },
-        [''] = { alias = 'V-BLOCK',  color = c.cactus },
+        i      = { alias = 'INSERT',   color = c.cactus },
+        c      = { alias = 'COMMAND',  color = c.light  },
+        v      = { alias = 'VISUAL',   color = c.purple },
+        V      = { alias = 'V-LINE',   color = c.purple },
+        [''] = { alias = 'V-BLOCK',  color = c.purple },
         r      = { alias = 'REPLACE',  color = c.red    },
         R      = { alias = 'REPLACE',  color = c.red    },
-        t      = { alias = 'TERMINAL', color = c.purple },
+        t      = { alias = 'TERMINAL', color = c.blue   },
         s      = { alias = 'SELECT',   color = c.brown  },
         S      = { alias = 'S-LINE',   color = c.brown  },
     }

@@ -15,7 +15,7 @@ local palette = {
 
     cactus  = { gui='#87AF5F', cterm=107 }, -- limegreen
     moss    = { gui='#5F875F', cterm=065 }, -- darkgreen
-    flower  = { gui='#AFAF87', cterm=144 }, -- yellow
+    flower  = { gui='#AFAF5F', cterm=145 }, -- yellow
     fruit   = { gui='#D787AF', cterm=175 }, -- pink
     purple  = { gui='#8787AF', cterm=103 },
     cyan    = { gui='#87AFD7', cterm=110 },

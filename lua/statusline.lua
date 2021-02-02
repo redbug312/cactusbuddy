@@ -32,6 +32,10 @@ for key, value in pairs(palette) do
 end
 
 -- Local helper functions
+local function spacing(num)
+    return function() return string.rep(' ', num) end
+end
+
 local function get_current_file_name()
     local file = vim.fn.expand'%:t'
     if vim.bo.readonly and vim.bo.filetype ~= 'help' then
@@ -84,7 +88,7 @@ gls.left[2] = {
 }
 gls.left[3] = {
     Space = {
-        provider = function() return '   ' end,
+        provider = spacing(3),
         highlight = {c.light, c.base},
     }
 }
@@ -124,12 +128,12 @@ gls.right[1] = {
 }
 gls.right[2] = {
     BufferType = {
-        provider = 'FileTypeName',
+        provider = {spacing(1), 'FileTypeName', spacing(1)},
         condition = function()
             return vim.bo.filetype ~= ''
         end,
         highlight = {c.light, c.base},
-        separator = ' ',
+        separator = '',
         separator_highlight = {c.light, c.base}
     }
 }
@@ -137,7 +141,7 @@ gls.right[3] = {
     PerCent = {
         provider = 'LinePercent',
         highlight = {c.light, c.base},
-        separator = ' ',
+        separator = '',
         separator_highlight = {c.light, c.base}
     }
 }

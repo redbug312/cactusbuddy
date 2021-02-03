@@ -54,6 +54,13 @@ Group.new('User2',        c.blue,   c.none,  s.none)
 Group.new('Error',        c.red,    c.none,  s.none)
 Group.new('Warning',      c.orange, c.none,  s.none)
 
+Group.new('DiffAdd',      c.none,   c.black,  s.none)
+Group.new('DiffChange',   c.none,   c.black,  s.none)
+Group.new('DiffDelete',   c.darker, c.black,  s.none)
+Group.new('DiffText',     c.none,   c.black,  s.underline)
+Group.new('DiffAdded',    c.cactus, c.none,   s.none)
+Group.new('DiffRemoved',  c.red,    c.none,   s.none)
+
 Group.new('IncSearch',    c.none,   c.none,  s.reverse)
 Group.new('Search',       c.fruit,  c.none,  s.underline)
 Group.new('WildMenu',     c.fruit,  c.base,  s.none)
@@ -105,6 +112,7 @@ Group.link('Exception',      g.Statement)
 
 -- USER INTERFACE
 
+Group.link('MoreMsg',     g.Statement)
 Group.link('ErrorMsg',    g.Error)
 Group.link('WarningMsg',  g.Warning)
 Group.link('Question',    g.Warning)
@@ -127,6 +135,8 @@ Group.link('TabLine',     g.Normal)
 Group.link('TabLineSel',  g.Keyword)
 Group.link('TabLineFill', g.Normal)
 
+Group.link('NvimInternalError', g.Error)
+
 -- PLUGIN SPECIFIC
 
 local statusline = vim.g.cactusbuddy_galaxyline_enabled
@@ -134,14 +144,20 @@ if statusline then require 'statusline' end
 
 Group.link('TSConstructor',     g.Normal)
 Group.link('TSConditional',     g.Statement)
+Group.link('TSFunctionBuiltin', g.Special)
 Group.link('TSVariableBuiltin', g.Special)
 Group.link('TSKeywordSpecial',  g.Special)
+Group.link('TSKeywordOperator', g.Statement)
 Group.link('TSConstant',        g.Special)
 
 Group.link('LspDiagnosticsDefaultError',       g.Error)
 Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
 Group.link('LspDiagnosticsDefaultInformation', g.Todo)  -- not decided
 Group.link('LspDiagnosticsDefaultHint',        g.Todo)  -- not decided
+
+Group.link('packerStatusCommit', g.Statement)
+Group.link('packerStatusSuccess', g.Statement)
+Group.link('packerHash', g.String)
 
 Group.link('ALEErrorSign',   g.Error)
 Group.link('ALEWarningSign', g.Warning)
@@ -153,6 +169,10 @@ Group.link('GitGutterDelete',       g.Normal)
 
 Group.link('SignatureMarkText',   g.Todo)
 Group.link('SignatureMarkerText', g.Todo)
+
+Group.link('NvimTreeFolderIcon', g.Comment)
+Group.link('NvimTreeRootFolder', g.Statement)
+Group.link('NvimTreeSymlink',    g.Special)
 
 -- LANGUAGE SPECIFIC
 

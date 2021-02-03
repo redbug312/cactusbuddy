@@ -15,7 +15,6 @@ local palette = {
 
     cactus  = { gui='#87AF5F', cterm=107 }, -- limegreen
     moss    = { gui='#5F875F', cterm=065 }, -- darkgreen
-    flower  = { gui='#AFAF5F', cterm=145 }, -- yellow
     fruit   = { gui='#D787AF', cterm=175 }, -- pink
     purple  = { gui='#8787AF', cterm=103 },
     cyan    = { gui='#87AFD7', cterm=110 },
@@ -23,6 +22,7 @@ local palette = {
     blue    = { gui='#5F87AF', cterm=067 },
     red     = { gui='#D75F5F', cterm=167 },
     orange  = { gui='#D7875F', cterm=173 },
+    yellow  = { gui='#AFAF5F', cterm=145 },
 }
 
 -- assume this function exists
@@ -45,7 +45,6 @@ Group.new('Whitespace',   c.dark,   c.none,  s.none)
 
 Group.new('Constant',     c.cactus, c.none,  s.none)
 Group.new('String',       c.moss,   c.none,  s.none)
-Group.new('MatchParen',   c.flower, c.none,  s.none)
 Group.new('Todo',         c.fruit,  c.none,  s.none)
 Group.new('Special',      c.purple, c.none,  s.none)
 Group.new('Title',        c.cyan,   c.none,  s.none)
@@ -65,6 +64,7 @@ Group.new('StatusLine',   c.light,  c.base,  s.none)
 Group.new('StatusLineNC', c.base,   c.base,  s.none)
 Group.new('CursorLine',   c.none,   c.black, s.none)
 Group.new('CursorLineNr', c.grey,   c.none,  s.none)
+Group.new('MatchParen',   c.cyan,   c.none,  s.none)
 
 -- LINKS
 

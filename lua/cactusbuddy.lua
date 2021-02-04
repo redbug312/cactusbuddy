@@ -13,8 +13,8 @@ local palette = {
     black   = { gui='#262626', cterm=235 },
     backgnd = { gui='#1C1C1C', cterm=234 },
 
-    cactus  = { gui='#87AF5F', cterm=107 }, -- limegreen
-    moss    = { gui='#5F875F', cterm=065 }, -- darkgreen
+    cactus  = { gui='#5F875F', cterm=065 }, -- darkgreen
+    grass   = { gui='#87AF87', cterm=108 }, -- limegreen
     fruit   = { gui='#D787AF', cterm=175 }, -- pink
     purple  = { gui='#8787AF', cterm=103 },
     cyan    = { gui='#87AFD7', cterm=110 },
@@ -43,8 +43,8 @@ Group.new('Comment',      c.dark,   c.none,  s.none)
 Group.new('NonText',      c.darker, c.none,  s.none)
 Group.new('Whitespace',   c.dark,   c.none,  s.none)
 
-Group.new('Constant',     c.cactus, c.none,  s.none)
-Group.new('String',       c.moss,   c.none,  s.none)
+Group.new('Constant',     c.grass,  c.none,  s.none)
+Group.new('String',       c.cactus, c.none,  s.none)
 Group.new('Todo',         c.fruit,  c.none,  s.none)
 Group.new('Special',      c.purple, c.none,  s.none)
 Group.new('Title',        c.cyan,   c.none,  s.none)
@@ -58,7 +58,7 @@ Group.new('DiffAdd',      c.none,   c.black,  s.none)
 Group.new('DiffChange',   c.none,   c.black,  s.none)
 Group.new('DiffDelete',   c.darker, c.black,  s.none)
 Group.new('DiffText',     c.none,   c.black,  s.underline)
-Group.new('DiffAdded',    c.cactus, c.none,   s.none)
+Group.new('DiffAdded',    c.grass,  c.none,   s.none)
 Group.new('DiffRemoved',  c.red,    c.none,   s.none)
 
 Group.new('IncSearch',    c.none,   c.none,  s.reverse)
@@ -194,3 +194,5 @@ Group.link('helpSectionDelim',   g.Comment)
 Group.link('helpHeadline',       g.Title)
 Group.link('helpHeader',         g.Statement)
 Group.link('helpHyperTextEntry', g.Constant)
+Group.link('helpOption',         g.String)
+Group.link('helpIgnore',         g.NonText)

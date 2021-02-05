@@ -5,17 +5,16 @@ gl.short_line_list = {'defx', 'packager', 'vista', 'NvimTree', 'nerdtree'}
 
 local palette = {
     white   = { gui='#A8A8A8', cterm=248 },
-    light   = { gui='#8A8A8A', cterm=245 },
-    grey    = { gui='#808080', cterm=244 },
-    dark    = { gui='#585858', cterm=240 },
-    darker  = { gui='#444444', cterm=238 },
-    base    = { gui='#303030', cterm=236 },
-    black   = { gui='#262626', cterm=235 },
-    backgnd = { gui='#1C1C1C', cterm=234 },
+    light   = { gui='#949494', cterm=246 },
+    grey    = { gui='#8A8A8A', cterm=245 },
+    dark    = { gui='#626262', cterm=241 },
+    darker  = { gui='#4E4E4E', cterm=239 },
+    base    = { gui='#262626', cterm=235 },
+    black   = { gui='#1C1C1C', cterm=234 },
+    backgnd = { gui='#121212', cterm=233 },
 
-    cactus  = { gui='#87AF5F', cterm=107 }, -- limegreen
-    moss    = { gui='#5F875F', cterm=065 }, -- darkgreen
-    flower  = { gui='#AFAF87', cterm=144 }, -- yellow
+    cactus  = { gui='#5F875F', cterm=065 }, -- darkgreen
+    grass   = { gui='#87AF87', cterm=108 }, -- limegreen
     fruit   = { gui='#D787AF', cterm=175 }, -- pink
     purple  = { gui='#8787AF', cterm=103 },
     cyan    = { gui='#87AFD7', cterm=110 },
@@ -23,6 +22,7 @@ local palette = {
     blue    = { gui='#5F87AF', cterm=067 },
     red     = { gui='#D75F5F', cterm=167 },
     orange  = { gui='#D7875F', cterm=173 },
+    yellow  = { gui='#AFAF5F', cterm=145 },
 }
 
 -- initialize all colors from palette

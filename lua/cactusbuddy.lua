@@ -4,35 +4,35 @@ local v = vim
 v.g.colors_name = 'cactusbuddy'
 
 local palette = {
-    white   = { gui='#A8A8A8', cterm=248 },
-    light   = { gui='#949494', cterm=246 },
-    grey    = { gui='#8A8A8A', cterm=245 },
-    dark    = { gui='#626262', cterm=241 },
-    darker  = { gui='#4E4E4E', cterm=239 },
-    base    = { gui='#262626', cterm=235 },
-    black   = { gui='#1C1C1C', cterm=234 },
-    backgnd = { gui='#121212', cterm=233 },
+  white   = { gui='#A8A8A8', cterm=248 },
+  light   = { gui='#949494', cterm=246 },
+  grey    = { gui='#8A8A8A', cterm=245 },
+  dark    = { gui='#626262', cterm=241 },
+  darker  = { gui='#4E4E4E', cterm=239 },
+  base    = { gui='#262626', cterm=235 },
+  black   = { gui='#1C1C1C', cterm=234 },
+  backgnd = { gui='#121212', cterm=233 },
 
-    cactus  = { gui='#5F875F', cterm=065 }, -- darkgreen
-    grass   = { gui='#87AF87', cterm=108 }, -- limegreen
-    fruit   = { gui='#D787AF', cterm=175 }, -- pink
-    purple  = { gui='#8787AF', cterm=103 },
-    cyan    = { gui='#87AFD7', cterm=110 },
-    brown   = { gui='#AF875F', cterm=137 },
-    blue    = { gui='#5F87AF', cterm=067 },
-    red     = { gui='#D75F5F', cterm=167 },
-    orange  = { gui='#D7875F', cterm=173 },
-    yellow  = { gui='#AFAF5F', cterm=145 },
+  cactus  = { gui='#5F875F', cterm=065 }, -- darkgreen
+  grass   = { gui='#87AF87', cterm=108 }, -- limegreen
+  fruit   = { gui='#D787AF', cterm=175 }, -- pink
+  purple  = { gui='#8787AF', cterm=103 },
+  cyan    = { gui='#87AFD7', cterm=110 },
+  brown   = { gui='#AF875F', cterm=137 },
+  blue    = { gui='#5F87AF', cterm=067 },
+  red     = { gui='#D75F5F', cterm=167 },
+  orange  = { gui='#D7875F', cterm=173 },
+  yellow  = { gui='#AFAF5F', cterm=145 },
 }
 
 -- assume this function exists
 Group.link = function(name, group)
-    Group.new(name, group, group, group)
+  Group.new(name, group, group, group)
 end
 
 -- initialize all colors from palette
 for key, value in pairs(palette) do
-    Color.new(key, value.gui)
+  Color.new(key, value.gui)
 end
 
 -- EDITOR BASICS
@@ -131,6 +131,7 @@ Group.link('Pmenu',       g.StatusLine)
 Group.link('PmenuSel',    g.WildMenu)
 Group.link('PmenuSbar',   g.Pmenu)
 Group.link('PmenuThumb',  g.Pmenu)
+Group.link('NormalFloat', g.Pmenu)
 
 Group.link('TabLine',     g.Normal)
 Group.link('TabLineSel',  g.Keyword)

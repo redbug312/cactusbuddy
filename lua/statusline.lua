@@ -130,8 +130,8 @@ gls.right[1] = {
   GitBranch = {
     provider = 'GitBranch',
     condition = function()
-      local vcs = require('galaxyline.provider_vcs')
-      return vcs.check_git_workspace()
+      local cond = require('galaxyline.condition')
+      return pcall(cond.check_git_workspace)
     end,
     icon = ' ',
     highlight = {c.light, c.base}

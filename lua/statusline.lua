@@ -39,7 +39,7 @@ end
 local function get_current_file_name()
   local file = vim.fn.expand'%:t'
   if vim.bo.readonly and vim.bo.filetype ~= 'help' then
-    file = file..' '
+    file = file..' '
   end
   if not vim.bo.readonly and vim.bo.modified then
     file = file..' [+]'

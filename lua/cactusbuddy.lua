@@ -39,7 +39,7 @@ end
 
 Group.new('Normal',       c.grey,   c.none,  s.none)
 Group.new('Statement',    c.white,  c.none,  s.none)
-Group.new('Comment',      c.dark,   c.none,  s.none)
+Group.new('Noise',        c.dark,   c.none,  s.none)
 Group.new('NonText',      c.darker, c.none,  s.none)
 Group.new('Whitespace',   c.dark,   c.none,  s.none)
 
@@ -81,11 +81,12 @@ Group.link('Identifier',     g.Normal)
 Group.link('Type',           g.Normal)
 Group.link('Delimiter',      g.Normal)
 Group.link('Operator',       g.Normal)
-Group.link('Noise',          g.Normal)
 Group.link('Function',       g.Identifier)
 Group.link('StorageClass',   g.Type)
 Group.link('Structure',      g.Type)
 Group.link('Typedef',        g.Type)
+
+Group.link('Comment',        g.Noise)
 Group.link('VertSplit',      g.Noise)
 Group.link('ModeMsg',        g.Noise)
 
@@ -135,7 +136,7 @@ Group.link('PmenuThumb',  g.Pmenu)
 Group.link('NormalFloat', g.Pmenu)
 
 Group.link('TabLine',     g.Normal)
-Group.link('TabLineSel',  g.Keyword)
+Group.link('TabLineSel',  g.Special)
 Group.link('TabLineFill', g.Normal)
 
 Group.link('NvimInternalError', g.Error)
@@ -159,9 +160,9 @@ Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
 Group.link('LspDiagnosticsDefaultInformation', g.Todo)  -- not decided
 Group.link('LspDiagnosticsDefaultHint',        g.Todo)  -- not decided
 
-Group.link('packerStatusCommit', g.Statement)
+Group.link('packerStatusCommit',  g.Statement)
 Group.link('packerStatusSuccess', g.Statement)
-Group.link('packerHash', g.String)
+Group.link('packerHash',          g.Constant)
 
 Group.link('ALEErrorSign',   g.Error)
 Group.link('ALEWarningSign', g.Warning)
@@ -174,7 +175,7 @@ Group.link('GitGutterDelete',       g.Normal)
 Group.link('SignatureMarkText',   g.Todo)
 Group.link('SignatureMarkerText', g.Todo)
 
-Group.link('NvimTreeFolderIcon', g.Normal)
+Group.link('NvimTreeFolderIcon', g.Directory)
 Group.link('NvimTreeRootFolder', g.Statement)
 Group.link('NvimTreeSymlink',    g.Special)
 
@@ -193,8 +194,9 @@ Group.link('vimmapmodkey', g.Special)
 Group.link('vimmaplhs',    g.Normal)
 Group.link('vimbracket',   g.Special)
 Group.link('vimnotation',  g.Special)
+Group.link('vimiscommand', g.Normal)
 
-Group.link('helpSectionDelim',   g.Comment)
+Group.link('helpSectionDelim',   g.Noise)
 Group.link('helpHeadline',       g.Title)
 Group.link('helpHeader',         g.Statement)
 Group.link('helpHyperTextEntry', g.Constant)

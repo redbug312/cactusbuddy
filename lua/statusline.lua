@@ -5,10 +5,10 @@ gl.short_line_list = {'defx', 'packager', 'vista', 'NvimTree', 'nerdtree'}
 
 local palette = {
   white   = { gui='#A8A8A8', cterm=248 },
-  light   = { gui='#949494', cterm=246 },
-  grey    = { gui='#8A8A8A', cterm=245 },
+  light   = { gui='#949494', cterm=245 },
+  grey    = { gui='#8A8A8A', cterm=244 },
   dark    = { gui='#626262', cterm=241 },
-  darker  = { gui='#4E4E4E', cterm=239 },
+  darker  = { gui='#4E4E4E', cterm=238 },
   base    = { gui='#262626', cterm=235 },
   black   = { gui='#1C1C1C', cterm=234 },
   backgnd = { gui='#121212', cterm=233 },

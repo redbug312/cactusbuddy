@@ -158,8 +158,8 @@ Group.link('TSDefinition',      g.IncSearch)
 
 Group.link('LspDiagnosticsDefaultError',       g.Error)
 Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
-Group.link('LspDiagnosticsDefaultInformation', g.Todo)  -- not decided
-Group.link('LspDiagnosticsDefaultHint',        g.Todo)  -- not decided
+Group.link('LspDiagnosticsDefaultInformation', g.Comment)  -- not decided
+Group.link('LspDiagnosticsDefaultHint',        g.Comment)  -- not decided
 
 Group.link('packerStatusCommit',  g.Statement)
 Group.link('packerStatusSuccess', g.Statement)
@@ -173,8 +173,8 @@ Group.link('GitGutterChange',       g.Normal)
 Group.link('GitGutterChangeDelete', g.Normal)
 Group.link('GitGutterDelete',       g.Normal)
 
-Group.link('SignatureMarkText',   g.Todo)
-Group.link('SignatureMarkerText', g.Todo)
+Group.link('SignatureMarkText',   g.Title)
+Group.link('SignatureMarkerText', g.Title)
 
 Group.link('NvimTreeFolderIcon', g.Directory)
 Group.link('NvimTreeRootFolder', g.Statement)

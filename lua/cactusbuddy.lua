@@ -23,6 +23,7 @@ local palette = {
   red     = { gui='#D75F5F', cterm=167 },
   orange  = { gui='#D7875F', cterm=173 },
   yellow  = { gui='#AFAF5F', cterm=145 },
+  brick   = { gui='#875F5F', cterm=095 }, -- darkpink
 }
 
 -- assume this function exists
@@ -59,8 +60,8 @@ Group.new('DiffAdd',      c.none,   c.black,  s.none)
 Group.new('DiffChange',   c.none,   c.black,  s.none)
 Group.new('DiffDelete',   c.darker, c.black,  s.none)
 Group.new('DiffText',     c.none,   c.black,  s.underline)
-Group.new('DiffAdded',    c.grass,  c.none,   s.none)
-Group.new('DiffRemoved',  c.red,    c.none,   s.none)
+Group.new('DiffAdded',    c.cactus, c.none,   s.none)
+Group.new('DiffRemoved',  c.brick,  c.none,   s.none)
 Group.new('DiffLine',     c.dark,   c.none,   s.underline)
 
 Group.new('IncSearch',    c.none,   c.none,  s.reverse)

@@ -18,11 +18,10 @@ local palette = {
   fruit   = { gui='#D787AF', cterm=175 }, -- pink
   purple  = { gui='#8787AF', cterm=103 },
   cyan    = { gui='#87AFD7', cterm=110 },
-  brown   = { gui='#AF875F', cterm=137 },
-  blue    = { gui='#5F87AF', cterm=067 },
   red     = { gui='#D75F5F', cterm=167 },
   orange  = { gui='#D7875F', cterm=173 },
-  yellow  = { gui='#AFAF5F', cterm=145 },
+  brown   = { gui='#AF875F', cterm=137 },
+  blue    = { gui='#5F87AF', cterm=067 },
   brick   = { gui='#875F5F', cterm=095 }, -- darkpink
 }
 
@@ -49,12 +48,10 @@ Group.new('String',       c.cactus, c.none,  s.none)
 Group.new('Todo',         c.fruit,  c.none,  s.none)
 Group.new('Special',      c.purple, c.none,  s.none)
 Group.new('Title',        c.cyan,   c.none,  s.none)
-Group.new('User1',        c.brown,  c.none,  s.none)
-Group.new('User2',        c.blue,   c.none,  s.none)
-Group.new('User3',        c.yellow, c.none,  s.none)
-
 Group.new('Error',        c.red,    c.none,  s.none)
 Group.new('Warning',      c.orange, c.none,  s.none)
+Group.new('User1',        c.brown,  c.none,  s.none)
+Group.new('User2',        c.blue,   c.none,  s.none)
 
 Group.new('DiffAdd',      c.none,   c.black,  s.none)
 Group.new('DiffChange',   c.none,   c.black,  s.none)
@@ -63,6 +60,11 @@ Group.new('DiffText',     c.none,   c.black,  s.underline)
 Group.new('DiffAdded',    c.cactus, c.none,   s.none)
 Group.new('DiffRemoved',  c.brick,  c.none,   s.none)
 Group.new('DiffLine',     c.dark,   c.none,   s.underline)
+
+Group.new('SpellBad',     c.red,    c.none,  s.undercurl)
+Group.new('SpellCap',     c.orange, c.none,  s.undercurl)
+Group.new('SpellRare',    c.brown,  c.none,  s.undercurl)
+Group.new('SpellLocal',   c.blue,   c.none,  s.undercurl)
 
 Group.new('IncSearch',    c.none,   c.none,  s.reverse)
 Group.new('Search',       c.fruit,  c.none,  s.underline)

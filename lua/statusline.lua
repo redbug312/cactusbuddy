@@ -4,25 +4,25 @@ local gls = gl.section
 gl.short_line_list = {'defx', 'packager', 'vista', 'NvimTree', 'nerdtree'}
 
 local palette = {
-  white   = { gui='#A8A8A8', cterm=248 },
-  light   = { gui='#949494', cterm=245 },
-  grey    = { gui='#8A8A8A', cterm=244 },
-  dark    = { gui='#626262', cterm=241 },
-  darker  = { gui='#4E4E4E', cterm=238 },
+  white   = { gui='#B2B2B2', cterm=249 },
+  grey    = { gui='#949494', cterm=246 },
+  dark    = { gui='#767676', cterm=243 },
+  darker  = { gui='#626262', cterm=241 },
+  darkest = { gui='#4E4E4E', cterm=238 },
   base    = { gui='#262626', cterm=235 },
   black   = { gui='#1C1C1C', cterm=234 },
   backgnd = { gui='#121212', cterm=233 },
 
   cactus  = { gui='#5F875F', cterm=065 }, -- darkgreen
   grass   = { gui='#87AF87', cterm=108 }, -- limegreen
-  fruit   = { gui='#D787AF', cterm=175 }, -- pink
+  fruit   = { gui='#D787AF', cterm=175 }, -- coralpink
+  brick   = { gui='#875F5F', cterm=095 }, -- brickpink
   purple  = { gui='#8787AF', cterm=103 },
   cyan    = { gui='#87AFD7', cterm=110 },
-  brown   = { gui='#AF875F', cterm=137 },
-  blue    = { gui='#5F87AF', cterm=067 },
   red     = { gui='#D75F5F', cterm=167 },
   orange  = { gui='#D7875F', cterm=173 },
-  yellow  = { gui='#AFAF5F', cterm=145 },
+  brown   = { gui='#AF875F', cterm=137 },
+  blue    = { gui='#5F87AF', cterm=067 },
 }
 
 -- initialize all colors from palette
@@ -30,6 +30,10 @@ local c = {}
 for key, value in pairs(palette) do
   c[key] = value.gui
 end
+
+local s = {
+  underline = 'none',
+}
 
 -- Local helper functions
 local function spacing(num)
@@ -88,40 +92,40 @@ end
 gls.left[1] = {
   ViMode = {
     provider = get_current_mode,
-    highlight = {c.light, c.base}
+    highlight = {c.none, c.black, s.underline},
   }
 }
 gls.left[2] = {
   FileName = {
     provider = get_current_file_name,
-    highlight = {c.light, c.base},
+    highlight = {c.none, c.black, s.underline},
   }
 }
 gls.left[3] = {
   Space = {
     provider = spacing(3),
-    highlight = {c.light, c.base},
+    highlight = {c.none, c.black, s.underline},
   }
 }
 gls.left[4] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = ' ',
-    highlight = {c.red, c.base},
+    highlight = {c.red, c.black, s.underline},
   }
 }
 gls.left[5] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = ' ',
-    highlight = {c.orange, c.base},
+    highlight = {c.orange, c.black, s.underline},
   }
 }
 gls.left[6] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = ' ',
-    highlight = {c.blue, c.base},
+    highlight = {c.none, c.black, s.underline},
   }
 }
 
@@ -134,7 +138,7 @@ gls.right[1] = {
       return pcall(cond.check_git_workspace)
     end,
     icon = ' ',
-    highlight = {c.light, c.base}
+    highlight = {c.none, c.black, s.underline}
   }
 }
 gls.right[2] = {
@@ -143,17 +147,17 @@ gls.right[2] = {
     condition = function()
       return vim.bo.filetype ~= ''
     end,
-    highlight = {c.light, c.base},
+    highlight = {c.none, c.black, s.underline},
     separator = '',
-    separator_highlight = {c.light, c.base}
+    separator_highlight = {c.none, c.black, s.underline}
   }
 }
 gls.right[3] = {
   PerCent = {
     provider = 'LinePercent',
-    highlight = {c.light, c.base},
+    highlight = {c.none, c.black, s.underline},
     separator = '',
-    separator_highlight = {c.light, c.base}
+    separator_highlight = {c.none, c.black, s.underline}
   }
 }
 
@@ -161,7 +165,7 @@ gls.right[3] = {
 gls.short_line_left[1] = {
   FileName = {
     provider = get_current_file_name,
-    highlight = {c.light, c.base}
+    highlight = {c.none, c.black, s.underline}
   }
 }
 

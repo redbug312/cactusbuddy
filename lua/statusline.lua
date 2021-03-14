@@ -77,7 +77,7 @@ local function get_current_mode()
   return '  '..mode.alias
 end
 
-local function get_enabled_plugins()
+local function hint_enabled_plugins()
   local enabled = {
     treesitter = pcall(vim.treesitter.get_parser, 0),
     lsp = #vim.lsp.buf_get_clients(0) ~= 0,
@@ -86,6 +86,12 @@ local function get_enabled_plugins()
   local flag = enabled.lsp and '+' or
     enabled.treesitter and '' or '-'
   return flag
+end
+
+local function warn_other_fileformat()
+  local format = vim.bo.fileformat
+  local warn = format ~= 'unix' and ' ['..format..']' or ''
+  return warn
 end
 
 -- Left side
@@ -143,7 +149,7 @@ gls.right[1] = {
 }
 gls.right[2] = {
   BufferType = {
-    provider = {spacing(1), 'FileTypeName', get_enabled_plugins, spacing(1)},
+    provider = {spacing(1), 'FileTypeName', hint_enabled_plugins, warn_other_fileformat, spacing(1)},
     condition = function()
       return vim.bo.filetype ~= ''
     end,

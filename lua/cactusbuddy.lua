@@ -25,11 +25,6 @@ local palette = {
   blue    = { gui='#5F87AF', cterm=067 },
 }
 
--- assume this function exists
-Group.link = function(name, group)
-  Group.new(name, group, group, group)
-end
-
 -- initialize all colors from palette
 for key, value in pairs(palette) do
   Color.new(key, value.gui)
@@ -71,7 +66,7 @@ Group.new('IncSearch',    c.none,    c.none,  s.reverse)
 Group.new('MatchParen',   c.cyan,    c.none,  s.none)
 Group.new('Search',       c.fruit,   c.none,  s.underline)
 Group.new('StatusLine',   c.none,    c.black, s.none)
-Group.new('StatusLineNC', c.grey,    c.black, s.none)
+Group.new('StatusLineNC', c.black,   c.black, s.none)
 Group.new('Visual',       c.none,    c.base,  s.none)
 Group.new('VisualNOS',    c.none,    c.base,  s.none)
 Group.new('WildMenu',     c.fruit,   c.base,  s.none)
@@ -145,7 +140,7 @@ Group.link('NvimInternalError', g.Error)
 
 -- PLUGIN SPECIFIC
 
-local statusline = vim.g.cactusbuddy_galaxyline_enabled
+local statusline = vim.g.cactusbuddy_express_line_enabled
 if statusline then require 'statusline' end
 
 Group.link('LspDiagnosticsDefaultError',       g.Error)
@@ -153,8 +148,14 @@ Group.link('LspDiagnosticsDefaultHint',        g.NonText)
 Group.link('LspDiagnosticsDefaultInformation', g.NonText)
 Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
 
-Group.link('TSConstant',            g.Constant)  -- already linked by default?
+Group.new('LspDiagnosticsUnderlineError',       c.none, c.none, s.underline, c.red)
+Group.new('LspDiagnosticsUnderlineHint',        c.none, c.none, s.underline, c.orange)
+Group.new('LspDiagnosticsUnderlineInformation', c.none, c.none, s.underline)
+Group.new('LspDiagnosticsUnderlineWarning',     c.none, c.none, s.underline)
+
+-- Group.link('TSConstant',            g.Constant)  -- already linked by default?
 Group.link('TSConstructor',         g.Noise)
+Group.link('TSKeywordFunction',     g.Noise)
 Group.link('TSNamespace',           g.Noise)
 Group.link('TSPunctDelimiter',      g.Noise)
 Group.link('TSVariableBuiltin',     g.String)  -- for `self`
@@ -175,8 +176,16 @@ Group.link('SignatureMarkText',     g.Noise)
 Group.link('SignatureMarkerText',   g.Noise)
 
 Group.link('NvimTreeFolderIcon',    g.Directory)
+Group.link('NvimTreeGitMerge',      g.User1)
+Group.link('NvimTreeGitRenamed',    g.Noise)
+Group.link('NvimTreeGitStaged',     g.Noise)
+Group.link('NvimTreeImageFile',     g.Noise)
+Group.link('NvimTreeIndentMarker',  g.Noise)
 Group.link('NvimTreeRootFolder',    g.Statement)
+Group.link('NvimTreeSpecialFile',   g.Special)
 Group.link('NvimTreeSymlink',       g.Special)
+
+Group.new('NvimTreeWindowPicker',   c.orange, c.black)  -- g.StatusLineHint?
 
 Group.link('TagbarAccessPrivate',   g.DiffDelete)
 Group.link('TagbarAccessProtected', g.DiffText)
@@ -184,6 +193,9 @@ Group.link('TagbarAccessPublic',    g.DiffAdd)
 Group.link('TagbarHighlight',       g.Todo)
 Group.link('TagbarScope',           g.String)
 Group.link('TagbarSignature',       g.Noise)
+
+Group.link('TelescopeBorder',       g.Noise)
+Group.link('TelescopeMatching',     g.Warning)
 
 -- LANGUAGE SPECIFIC
 
@@ -246,3 +258,5 @@ Group.link('rustModPathSep',     g.Noise)
 Group.link('rustQuestionMark',   g.Title)
 Group.link('rustSelf',           g.String)
 Group.link('rustTrait',          g.Noise)
+
+Group.link('poCommentSources',   g.Comment)

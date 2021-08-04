@@ -67,6 +67,7 @@ Group.new('MatchParen',   c.cyan,    c.none,  s.none)
 Group.new('Search',       c.fruit,   c.none,  s.underline)
 Group.new('StatusLine',   c.none,    c.black, s.none)
 Group.new('StatusLineNC', c.black,   c.black, s.none)
+Group.new('URI',          c.cactus,  c.none,  s.underline)
 Group.new('Visual',       c.none,    c.base,  s.none)
 Group.new('VisualNOS',    c.none,    c.base,  s.none)
 Group.new('WildMenu',     c.fruit,   c.base,  s.none)
@@ -140,25 +141,27 @@ Group.link('NvimInternalError', g.Error)
 
 -- PLUGIN SPECIFIC
 
-local statusline = vim.g.cactusbuddy_express_line_enabled
-if statusline then require 'statusline' end
-
-Group.link('LspDiagnosticsDefaultError',       g.Error)
-Group.link('LspDiagnosticsDefaultHint',        g.NonText)
-Group.link('LspDiagnosticsDefaultInformation', g.NonText)
-Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
+if vim.g.cactusbuddy_express_line_enabled then
+  require 'statusline'
+end
 
 Group.new('LspDiagnosticsUnderlineError',       c.none, c.none, s.underline, c.red)
 Group.new('LspDiagnosticsUnderlineHint',        c.none, c.none, s.underline, c.orange)
 Group.new('LspDiagnosticsUnderlineInformation', c.none, c.none, s.underline)
 Group.new('LspDiagnosticsUnderlineWarning',     c.none, c.none, s.underline)
 
--- Group.link('TSConstant',            g.Constant)  -- already linked by default?
+Group.link('LspDiagnosticsDefaultError',       g.Error)
+Group.link('LspDiagnosticsDefaultHint',        g.NonText)
+Group.link('LspDiagnosticsDefaultInformation', g.NonText)
+Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
+
+Group.link('TSConstant',            g.Constant)
 Group.link('TSConstructor',         g.Noise)
 Group.link('TSKeywordFunction',     g.Noise)
 Group.link('TSNamespace',           g.Noise)
 Group.link('TSPunctDelimiter',      g.Noise)
 Group.link('TSVariableBuiltin',     g.String)  -- for `self`
+Group.link('TSURI',                 g.URI)
 
 Group.link('PackerHash',            g.Number)
 Group.link('PackerStatusCommit',    g.Statement)
@@ -247,6 +250,23 @@ Group.link('htmlH3',             g.Header)
 Group.link('htmlH4',             g.Header)
 Group.link('htmlItalic',         g.Number)
 Group.link('htmlLink',           g.Normal)
+
+Group.link('cssAttr',              g.Normal)
+Group.link('cssFunctionName',      g.Normal)
+Group.link('cssAttrComma',         g.Noise)
+Group.link('cssCustomProp',        g.Noise)
+Group.link('cssProp',              g.Noise)
+Group.link('cssSelectorOp',        g.Noise)
+Group.link('cssSelectorOp2',       g.Noise)
+Group.link('cssStringQQ',          g.Noise)
+Group.link('cssColor',             g.String)
+Group.link('cssUnitDecorators',    g.String)
+Group.link('cssValueLength',       g.String)
+Group.link('cssPseudoClassId',     g.User1)
+Group.link('cssAtRule',            g.User2)
+Group.link('cssAttributeSelector', g.User2)
+Group.link('cssFunction',          g.User2)
+Group.link('cssMediaType',         g.User2)
 
 Group.link('rustAttribute',      g.Noise)
 Group.link('rustCommentLineDoc', g.Noise)

@@ -4,11 +4,11 @@ local v = vim
 v.g.colors_name = 'cactusbuddy'
 
 local palette = {
-  white   = { gui='#B2B2B2', cterm=249 },
+  white   = { gui='#BCBCBC', cterm=250 },
   grey    = { gui='#949494', cterm=246 },
   dark    = { gui='#767676', cterm=243 },
   darker  = { gui='#626262', cterm=241 },
-  darkest = { gui='#4E4E4E', cterm=238 },
+  darkest = { gui='#444444', cterm=238 },
   base    = { gui='#262626', cterm=235 },
   black   = { gui='#1C1C1C', cterm=234 },
   backgnd = { gui='#121212', cterm=233 },
@@ -200,6 +200,12 @@ Group.link('TagbarSignature',       g.Noise)
 Group.link('TelescopeBorder',       g.Noise)
 Group.link('TelescopeMatching',     g.Warning)
 
+Group.link('AerialEnumIcon',        g.Normal)
+Group.link('AerialInterfaceIcon',   g.User1)
+Group.link('AerialFunctionIcon',    g.Noise)
+Group.link('AerialLine',            g.Visual)
+Group.link('AerialStructIcon',      g.String)
+
 -- LANGUAGE SPECIFIC
 
 Group.link('vimAutoCmd',         g.Statement)
@@ -275,7 +281,7 @@ Group.link('rustEnumVariant',    g.User1)
 Group.link('rustLifetime',       g.User2)
 Group.link('rustModPath',        g.Noise)
 Group.link('rustModPathSep',     g.Noise)
-Group.link('rustQuestionMark',   g.Title)
+Group.link('rustQuestionMark',   g.Special)
 Group.link('rustSelf',           g.String)
 Group.link('rustTrait',          g.Noise)
 

@@ -145,15 +145,15 @@ if vim.g.cactusbuddy_express_line_enabled then
   require 'statusline'
 end
 
-Group.new('LspDiagnosticsUnderlineError',       c.none, c.none, s.underline, c.red)
-Group.new('LspDiagnosticsUnderlineHint',        c.none, c.none, s.underline, c.orange)
-Group.new('LspDiagnosticsUnderlineInformation', c.none, c.none, s.underline)
-Group.new('LspDiagnosticsUnderlineWarning',     c.none, c.none, s.underline)
+Group.new('DiagnosticUnderlineError', c.none, c.none, s.underline, c.red)
+Group.new('DiagnosticUnderlineHint',  c.none, c.none, s.underline, c.orange)
+Group.new('DiagnosticUnderlineInfo',  c.none, c.none, s.underline)
+Group.new('DiagnosticUnderlineWarn',  c.none, c.none, s.underline)
 
-Group.link('LspDiagnosticsDefaultError',       g.Error)
-Group.link('LspDiagnosticsDefaultHint',        g.NonText)
-Group.link('LspDiagnosticsDefaultInformation', g.NonText)
-Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
+Group.link('DiagnosticError',       g.Error)
+Group.link('DiagnosticHint',        g.NonText)
+Group.link('DiagnosticInfo',        g.NonText)
+Group.link('DiagnosticWarn',        g.Warning)
 
 Group.link('TSConstant',            g.Constant)
 Group.link('TSConstructor',         g.Noise)
@@ -177,7 +177,10 @@ Group.link('GitGutterDelete',       g.Normal)
 
 Group.link('NvimTreeExecFile',      g.User1)
 Group.link('NvimTreeFolderIcon',    g.String)
+Group.link('NvimTreeGitDelete',     g.Noise)
+Group.link('NvimTreeGitDirty',      g.Noise)
 Group.link('NvimTreeGitMerge',      g.Warning)
+Group.link('NvimTreeGitNew',        g.Noise)
 Group.link('NvimTreeGitRenamed',    g.Noise)
 Group.link('NvimTreeGitStaged',     g.Noise)
 Group.link('NvimTreeImageFile',     g.Noise)
@@ -279,6 +282,7 @@ Group.link('rustPubScopeCrate',  g.Noise)
 Group.link('rustPubScopeDelim',  g.Noise)
 Group.link('rustQuestionMark',   g.Special)
 Group.link('rustSelf',           g.String)
+Group.link('rustSuper',          g.Noise)
 Group.link('rustTrait',          g.Noise)
 
 Group.link('poCommentSources',   g.Comment)

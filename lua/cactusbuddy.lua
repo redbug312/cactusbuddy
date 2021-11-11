@@ -110,11 +110,12 @@ Group.link('Label',          g.User2)
 
 -- USER INTERFACE
 
-Group.link('ErrorMsg',     g.Error)
-Group.link('ModeMsg',      g.Normal)
-Group.link('MoreMsg',      g.Normal)
-Group.link('Question',     g.Warning)
-Group.link('WarningMsg',   g.Warning)
+Group.link('ErrorMsg',      g.Error)
+Group.link('ModeMsg',       g.Normal)
+Group.link('MoreMsg',       g.Normal)
+Group.link('Question',      g.Warning)
+Group.link('WarningMsg',    g.Warning)
+Group.link('HealthSuccess', g.String)
 
 Group.link('ColorColumn',  g.CursorLine)
 Group.link('CursorLine',   g.StatusLine)
@@ -155,6 +156,12 @@ Group.link('DiagnosticHint',        g.NonText)
 Group.link('DiagnosticInfo',        g.NonText)
 Group.link('DiagnosticWarn',        g.Warning)
 
+-- for telescope highlights
+Group.link('LspDiagnosticsDefaultError',       g.Error)
+Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
+Group.link('LspDiagnosticsDefaultHint',        g.Noise)
+Group.link('LspDiagnosticsDefaultInformation', g.Noise)
+
 Group.link('TSConstant',            g.Constant)
 Group.link('TSConstructor',         g.Noise)
 Group.link('TSKeywordFunction',     g.Noise)
@@ -177,7 +184,7 @@ Group.link('GitGutterDelete',       g.Normal)
 
 Group.link('NvimTreeExecFile',      g.User1)
 Group.link('NvimTreeFolderIcon',    g.String)
-Group.link('NvimTreeGitDelete',     g.Noise)
+Group.link('NvimTreeGitDeleted',    g.Noise)
 Group.link('NvimTreeGitDirty',      g.Noise)
 Group.link('NvimTreeGitMerge',      g.Warning)
 Group.link('NvimTreeGitNew',        g.Noise)
@@ -291,7 +298,7 @@ Group.link('shArithRegion',      g.Noise)
 Group.link('shArithmetic',       g.Normal)
 Group.link('shCmdSubRegion',     g.Noise)
 Group.link('shCommandSub',       g.Normal)
-Group.link('shDeref',            g.Normal)
+Group.link('shDeref',            g.Noise)
 Group.link('shOption',           g.Normal)
 Group.link('shQuote',            g.String)
 

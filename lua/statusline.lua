@@ -10,18 +10,16 @@ local function show_current_mode(window, buffer)
 end
 
 local function show_diagnostics(_, buffer)
+  local diag = vim.diagnostic
   local enabled = #vim.lsp.buf_get_clients(0) ~= 0
   if not enabled then
     return ''
   end
-
-  local _, client = next(vim.lsp.buf_get_clients(0))
   local counts = {
-    error = vim.lsp.diagnostic.get_count(buffer.bufnr, 'Error', client.id),
-    warn  = vim.lsp.diagnostic.get_count(buffer.bufnr, 'Warning', client.id),
-    info  = vim.lsp.diagnostic.get_count(buffer.bufnr, 'Information', client.id),
+    error = #diag.get(buffer.bufnr, { severity = diag.severity.ERROR }),
+    warn  = #diag.get(buffer.bufnr, { severity = diag.severity.WARN }),
+    info  = #diag.get(buffer.bufnr, { severity = diag.severity.INFO }),
   }
-
   local texts = {
     counts.error ~= 0 and string.format('%%#%s# %s%%*', 'ElError', counts.error) or '',
     counts.warn  ~= 0 and string.format('%%#%s# %s%%*', 'ElWarning', counts.warn) or '',

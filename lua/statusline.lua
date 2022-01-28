@@ -11,7 +11,7 @@ end
 
 local function show_diagnostics(_, buffer)
   local diag = vim.diagnostic
-  local enabled = #vim.lsp.buf_get_clients(0) ~= 0
+  local enabled = next(vim.lsp.buf_get_clients(0)) ~= nil
   if not enabled then
     return ''
   end
@@ -35,10 +35,10 @@ local function show_git_branch(window, buffer)
   return text
 end
 
-local function show_enabled_plugins()
+local function show_enabled_plugins(_, buffer)
   local enabled = {
-    treesitter = pcall(vim.treesitter.get_parser, 0),
-    lsp = #vim.lsp.buf_get_clients(0) ~= 0,
+    treesitter = pcall(vim.treesitter.get_parser, buffer.bufnr),
+    lsp = #vim.lsp.buf_get_clients(buffer.bufnr) ~= 0,
   }
   local flag = enabled.lsp and '+' or
     enabled.treesitter and '' or '-'

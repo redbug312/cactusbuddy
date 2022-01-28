@@ -4,25 +4,25 @@ local v = vim
 v.g.colors_name = 'cactusbuddy'
 
 local palette = {
-  white   = { gui='#BCBCBC', cterm=250 },
+  white   = { gui='#bcbcbc', cterm=250 },
   grey    = { gui='#949494', cterm=246 },
   dark    = { gui='#767676', cterm=243 },
-  darker  = { gui='#626262', cterm=241 },
-  darkest = { gui='#444444', cterm=238 },
+  darker  = { gui='#585858', cterm=240 },
+  darkest = { gui='#3a3a3a', cterm=237 },
   base    = { gui='#262626', cterm=235 },
-  black   = { gui='#1C1C1C', cterm=234 },
+  black   = { gui='#1c1c1c', cterm=234 },
   backgnd = { gui='#121212', cterm=233 },
 
-  cactus  = { gui='#5F875F', cterm=065 }, -- darkgreen
-  grass   = { gui='#87AF87', cterm=108 }, -- limegreen
-  fruit   = { gui='#D787AF', cterm=175 }, -- coralpink
-  brick   = { gui='#875F5F', cterm=095 }, -- brickpink
-  purple  = { gui='#8787AF', cterm=103 },
-  cyan    = { gui='#87AFD7', cterm=110 },
-  red     = { gui='#D75F5F', cterm=167 },
-  orange  = { gui='#D7875F', cterm=173 },
-  brown   = { gui='#AF875F', cterm=137 },
-  blue    = { gui='#5F87AF', cterm=067 },
+  cactus  = { gui='#5f875f', cterm=065 }, -- darkgreen
+  grass   = { gui='#87af87', cterm=108 }, -- limegreen
+  fruit   = { gui='#d787af', cterm=175 }, -- coralpink
+  brick   = { gui='#875f5f', cterm=095 }, -- brickpink
+  purple  = { gui='#8787af', cterm=103 },
+  cyan    = { gui='#87afd7', cterm=110 },
+  red     = { gui='#d75f5f', cterm=167 },
+  orange  = { gui='#d7875f', cterm=173 },
+  brown   = { gui='#af875f', cterm=137 },
+  blue    = { gui='#5f87af', cterm=067 },
 }
 
 -- initialize all colors from palette
@@ -153,8 +153,8 @@ Group.new('DiagnosticUnderlineInfo',  c.none, c.none, s.underline)
 Group.new('DiagnosticUnderlineWarn',  c.none, c.none, s.underline)
 
 Group.link('DiagnosticError',       g.Error)
-Group.link('DiagnosticHint',        g.NonText)
-Group.link('DiagnosticInfo',        g.NonText)
+Group.link('DiagnosticHint',        g.Comment)
+Group.link('DiagnosticInfo',        g.Comment)
 Group.link('DiagnosticWarn',        g.Warning)
 
 -- for telescope highlights
@@ -240,9 +240,12 @@ Group.link('diffNewFile',        g.Special)
 Group.link('diffOldFile',        g.Special)
 Group.link('diffSubname',        g.Statement)
 
-Group.link('makeCommands',       g.String)
-Group.link('makeSpecTarget',     g.Noise)
-Group.link('makeTarget',         g.Normal)
+Group.link('makeCommands',       g.Noise)
+Group.link('makeDefine',         g.Noise)
+Group.link('makeSpecTarget',     g.User2)
+Group.link('makeStatement',      g.Noise)
+Group.link('makeSpecial',        g.Title)
+Group.link('makeCmdNextLine',    g.Special)
 
 Group.link('texBeginEnd',        g.Noise)
 Group.link('texBeginEndName',    g.Noise)

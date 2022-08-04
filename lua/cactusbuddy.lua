@@ -121,7 +121,6 @@ Group.link('ColorColumn',  g.CursorLine)
 Group.link('CursorLine',   g.StatusLine)
 Group.link('CursorLineNr', g.Normal)
 Group.link('EndOfBuffer',  g.NonText)
-Group.link('FloatBorder',  g.NonText)
 Group.link('FoldColumn',   g.LineNr)
 Group.link('Folded',       g.NonText)
 Group.link('LineNr',       g.NonText)
@@ -140,6 +139,7 @@ Group.link('TabLineFill',  g.Normal)
 Group.link('TabLineSel',   g.Special)
 
 Group.link('NvimInternalError', g.Error)
+Group.link('FloatBorder',  g.NonText)
 
 -- PLUGIN SPECIFIC
 
@@ -148,14 +148,14 @@ if vim.g.cactusbuddy_express_line_enabled then
 end
 
 Group.new('DiagnosticUnderlineError', c.none, c.none, s.underline, c.red)
-Group.new('DiagnosticUnderlineHint',  c.none, c.none, s.underline, c.orange)
+Group.new('DiagnosticUnderlineWarn',  c.none, c.none, s.underline, c.orange)
+Group.new('DiagnosticUnderlineHint',  c.none, c.none, s.underline)
 Group.new('DiagnosticUnderlineInfo',  c.none, c.none, s.underline)
-Group.new('DiagnosticUnderlineWarn',  c.none, c.none, s.underline)
 
 Group.link('DiagnosticError',       g.Error)
+Group.link('DiagnosticWarn',        g.Warning)
 Group.link('DiagnosticHint',        g.Comment)
 Group.link('DiagnosticInfo',        g.Comment)
-Group.link('DiagnosticWarn',        g.Warning)
 
 -- for telescope highlights
 Group.link('LspDiagnosticsDefaultError',       g.Error)
@@ -165,11 +165,13 @@ Group.link('LspDiagnosticsDefaultInformation', g.Noise)
 
 Group.link('TSConstant',            g.Constant)
 Group.link('TSConstructor',         g.Noise)
+Group.link('TSFuncBuiltin',         g.Noise)
 Group.link('TSKeywordFunction',     g.Noise)
 Group.link('TSNamespace',           g.Noise)
 Group.link('TSPunctDelimiter',      g.Noise)
-Group.link('TSVariableBuiltin',     g.String)  -- for `self`
+Group.link('TSTextReference',       g.Noise)
 Group.link('TSURI',                 g.URI)
+Group.link('TSVariableBuiltin',     g.String)  -- for `self`
 
 Group.link('PackerHash',            g.Number)
 Group.link('PackerStatusCommit',    g.Statement)
@@ -317,3 +319,6 @@ Group.link('pugClassChar',       g.Noise)
 Group.link('pugPipeChar',        g.Noise)
 Group.link('pugPipedText',       g.String)
 Group.link('pugTagInlineText',   g.String)
+
+Group.link('gitcommitHeader',    g.Normal)
+Group.link('gitcommitFile',      g.String)

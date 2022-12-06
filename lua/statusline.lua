@@ -38,7 +38,7 @@ end
 local function show_enabled_plugins(_, buffer)
   local enabled = {
     treesitter = pcall(vim.treesitter.get_parser, buffer.bufnr),
-    lsp = #vim.lsp.buf_get_clients(buffer.bufnr) ~= 0,
+    lsp = next(vim.lsp.buf_get_clients(buffer.bufnr)) ~= nil,
   }
   local flag = enabled.lsp and '+' or
     enabled.treesitter and '' or '-'

@@ -8,7 +8,7 @@ local palette = {
   grey    = { gui='#949494', cterm=246 },
   dark    = { gui='#767676', cterm=243 },
   darker  = { gui='#585858', cterm=240 },
-  darkest = { gui='#3a3a3a', cterm=237 },
+  darkest = { gui='#444444', cterm=238 },
   base    = { gui='#262626', cterm=235 },
   black   = { gui='#1c1c1c', cterm=234 },
   backgnd = { gui='#121212', cterm=233 },
@@ -51,7 +51,7 @@ Group.new('Warning',      c.orange,  c.none,  s.none)
 
 Group.new('DiffAdd',      c.cactus,  c.none,  s.none)
 Group.new('DiffAdded',    c.cactus,  c.none,  s.none)
-Group.new('DiffChange',   c.none,    c.none,  s.none)
+Group.new('DiffChange',   c.brown,   c.none,  s.none)
 Group.new('DiffDelete',   c.brick,   c.none,  s.none)
 Group.new('DiffLine',     c.darker,  c.none,  s.underline)
 Group.new('DiffRemoved',  c.brick,   c.none,  s.none)
@@ -64,6 +64,9 @@ Group.new('SpellRare',    c.blue,    c.none,  s.undercurl)
 
 Group.new('IncSearch',    c.none,    c.none,  s.reverse)
 Group.new('MatchParen',   c.cyan,    c.none,  s.none)
+Group.new('Pmenu',        c.darker,  c.black, s.none)
+Group.new('PmenuSel',     c.grey,    c.black, s.none)
+Group.new('PmenuThumb',   c.brown,   c.black, s.none)  -- not sure what this is
 Group.new('Search',       c.fruit,   c.none,  s.underline)
 Group.new('StatusLine',   c.none,    c.black, s.none)
 Group.new('StatusLineNC', c.black,   c.black, s.none)
@@ -74,39 +77,44 @@ Group.new('WildMenu',     c.fruit,   c.base,  s.none)
 
 -- LINKS
 
-Group.link('Function',       g.Normal)
-Group.link('Identifier',     g.Normal)
-Group.link('Statement',      g.Normal)
+Group.link('Constant',          g.Normal)
+Group.link('Delimiter',         g.Normal)
+Group.link('Function',          g.Normal)
+Group.link('Identifier',        g.Normal)
+Group.link('Statement',         g.Normal)
+Group.link('Type',              g.Normal)
+Group.link('TypeDef',           g.Normal)
 
-Group.link('Conditional',    g.Statement)
-Group.link('Delimiter',      g.Noise)
-Group.link('Exception',      g.Statement)
-Group.link('Include',        g.Statement)
-Group.link('Keyword',        g.Statement)
-Group.link('Macro',          g.Noise)
-Group.link('Operator',       g.Noise)
-Group.link('PreCondit',      g.Noise)
-Group.link('Repeat',         g.Statement)
-Group.link('StorageClass',   g.Type)
-Group.link('Structure',      g.Type)
-Group.link('Type',           g.Noise)
-Group.link('Typedef',        g.Type)
+Group.link('Conditional',       g.Noise)
+Group.link('Exception',         g.Noise)
+Group.link('Include',           g.Noise)
+Group.link('Keyword',           g.Noise)
+Group.link('Macro',             g.Noise)
+Group.link('Operator',          g.Noise)
+Group.link('PreProc',           g.Noise)
+Group.link('Repeat',            g.Noise)
+Group.link('StorageClass',      g.Noise)
 
-Group.link('Debug',          g.Special)
-Group.link('Define',         g.Special)
-Group.link('PreProc',        g.Special)
-Group.link('SpecialChar',    g.Special)
-Group.link('SpecialComment', g.Special)
-Group.link('SpecialKey',     g.Special)
-Group.link('Tag',            g.Special)
+Group.link('Boolean',           g.Number)
+Group.link('Character',         g.Number)
+Group.link('Debug',             g.Todo)
+Group.link('Directory',         g.String)
+Group.link('Label',             g.User2)
+Group.link('SpecialChar',       g.Special)
+Group.link('SpecialKey',        g.Special)
+Group.link('Tag',               g.User2)
 
-Group.link('Boolean',        g.Number)
-Group.link('Character',      g.Number)
-Group.link('Float',          g.Number)
-
-Group.link('Directory',      g.String)
-Group.link('Constant',       g.User1)
-Group.link('Label',          g.User2)
+Group.link('@attribute',        g.Noise)
+Group.link('@constant.builtin', g.User1)
+Group.link('@constructor',      g.Noise)
+Group.link('@function.builtin', g.Special)
+Group.link('@namespace',        g.Noise)
+Group.link('@punctuation.special',    g.Noise)
+Group.link('@storageclass.lifetime',  g.User2)
+Group.link('@string.docstring', g.Comment)
+Group.link('@type.builtin',     g.Normal)
+Group.link('@type.qualifier',   g.Noise)
+Group.link('@variable.builtin', g.String)
 
 -- USER INTERFACE
 
@@ -129,11 +137,7 @@ Group.link('SignColumn',   g.LineNr)
 Group.link('VertSplit',    g.NonText)
 Group.link('Whitespace',   g.NonText)
 
-Group.link('NormalFloat',  g.StatusLine)
-Group.link('Pmenu',        g.StatusLine)
-Group.link('PmenuSbar',    g.Pmenu)
-Group.link('PmenuSel',     g.WildMenu)
-Group.link('PmenuThumb',   g.Pmenu)
+Group.link('NormalFloat',  g.Normal)
 Group.link('TabLine',      g.Normal)
 Group.link('TabLineFill',  g.Normal)
 Group.link('TabLineSel',   g.Special)
@@ -157,60 +161,48 @@ Group.link('DiagnosticWarn',        g.Warning)
 Group.link('DiagnosticHint',        g.Comment)
 Group.link('DiagnosticInfo',        g.Comment)
 
--- for telescope highlights
-Group.link('LspDiagnosticsDefaultError',       g.Error)
-Group.link('LspDiagnosticsDefaultWarning',     g.Warning)
-Group.link('LspDiagnosticsDefaultHint',        g.Noise)
-Group.link('LspDiagnosticsDefaultInformation', g.Noise)
+Group.link('PackerHash',            g.Noise)
+-- Group.link('PackerStatusCommit',    g.Normal)
+-- Group.link('PackerStatusSuccess',   g.Normal)
 
-Group.link('TSConstant',            g.Constant)
-Group.link('TSConstructor',         g.Noise)
-Group.link('TSFuncBuiltin',         g.Noise)
-Group.link('TSKeywordFunction',     g.Noise)
-Group.link('TSNamespace',           g.Noise)
-Group.link('TSPunctDelimiter',      g.Noise)
-Group.link('TSTextReference',       g.Noise)
-Group.link('TSURI',                 g.URI)
-Group.link('TSVariableBuiltin',     g.String)  -- for `self`
+-- Group.link('ALEErrorSign',          g.Error)
+-- Group.link('ALEWarningSign',        g.Warning)
 
-Group.link('PackerHash',            g.Number)
-Group.link('PackerStatusCommit',    g.Statement)
-Group.link('PackerStatusSuccess',   g.Statement)
-
-Group.link('ALEErrorSign',          g.Error)
-Group.link('ALEWarningSign',        g.Warning)
-
-Group.link('GitGutterAdd',          g.Normal)
-Group.link('GitGutterChange',       g.Normal)
-Group.link('GitGutterChangeDelete', g.Normal)
-Group.link('GitGutterDelete',       g.Normal)
+Group.link('GitSignsAdd',           g.NonText)
+Group.link('GitSignsChange',        g.NonText)
+Group.link('GitSignsDelete',        g.NonText)
 
 Group.link('NvimTreeExecFile',      g.User1)
-Group.link('NvimTreeFolderIcon',    g.String)
 Group.link('NvimTreeGitDeleted',    g.Noise)
 Group.link('NvimTreeGitDirty',      g.Noise)
+Group.link('NvimTreeGitIgnored',    g.Noise)
 Group.link('NvimTreeGitMerge',      g.Warning)
 Group.link('NvimTreeGitNew',        g.Noise)
 Group.link('NvimTreeGitRenamed',    g.Noise)
 Group.link('NvimTreeGitStaged',     g.Noise)
 Group.link('NvimTreeImageFile',     g.Noise)
-Group.link('NvimTreeIndentMarker',  g.Noise)
-Group.link('NvimTreeRootFolder',    g.Statement)
+Group.link('NvimTreeIndentMarker',  g.String)
+Group.link('NvimTreeRootFolder',    g.Noise)
 Group.link('NvimTreeSpecialFile',   g.Noise)
 Group.link('NvimTreeSymlink',       g.User2)
-
-Group.new('NvimTreeWindowPicker',   c.orange, c.black)  -- g.StatusLineHint?
+Group.link('NvimTreeWindowPicker',  g.PmenuThumb)
 
 Group.link('TelescopeBorder',       g.Noise)
-Group.link('TelescopeMatching',     g.Warning)
-
-Group.link('AerialEnumIcon',        g.Normal)
-Group.link('AerialFieldIcon',       g.Noise)
-Group.link('AerialFunctionIcon',    g.Noise)
-Group.link('AerialInterfaceIcon',   g.User1)
+Group.link('TelescopeMatching',     g.User1)
+--
+-- Group.link('AerialEnumIcon',        g.Normal)
+-- Group.link('AerialFieldIcon',       g.Noise)
+-- Group.link('AerialFunctionIcon',    g.Noise)
+Group.link('AerialInterfaceIcon',   g.User2)
 Group.link('AerialLine',            g.Special)
-Group.link('AerialModuleIcon',      g.Comment)
-Group.link('AerialStructIcon',      g.String)
+Group.link('AerialStructIcon',      g.User1)
+--
+Group.link('LspInlayHint',          g.NonText)
+
+Group.link('CmpItemAbbr',           g.Noise)
+Group.link('CmpItemAbbrMatch',      g.Normal)
+Group.link('CmpItemKind',           g.Comment)
+Group.link('CmpItemMenu',           g.User1)
 
 -- LANGUAGE SPECIFIC
 
@@ -322,3 +314,5 @@ Group.link('pugTagInlineText',   g.String)
 
 Group.link('gitcommitHeader',    g.Normal)
 Group.link('gitcommitFile',      g.String)
+
+Group.link('markdownCode',       g.Noise)
